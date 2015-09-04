@@ -21,7 +21,7 @@ Project to calculate Sales tax on purchased goods and print the receipt for the 
     - #####if homebrew is not installed
         - Open terminal
         - Install homebrew by running the command
-        > ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         - Then install ant using the command
         > brew install ant
 
