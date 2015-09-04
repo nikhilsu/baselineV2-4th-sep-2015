@@ -32,4 +32,13 @@ public class ItemTest {
 
         assertEquals(105.0, item.itemNetAmount(), 0.0);
     }
+
+    @Test
+    public void shouldReturnItsNetAmountWhenItsGrossValueIs100AndIsImportedAndIsTaxable() {
+        boolean isTaxable = true;
+        boolean isImported = true;
+        Item item = new Item(100, isTaxable, isImported);
+
+        assertEquals(115.0, item.itemNetAmount(), 0.0);
+    }
 }
