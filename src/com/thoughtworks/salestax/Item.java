@@ -1,5 +1,6 @@
 package com.thoughtworks.salestax;
 
+// Item has Gross price, knows whether it is taxable or imported and returns its net Amount
 public class Item {
     private double itemPrice;
     private boolean isTaxable;
