@@ -21,6 +21,15 @@ public class ItemTest {
         boolean isImported = false;
         Item item = new Item(100, isTaxable, isImported);
 
-        assertEquals(11 0.0, item.itemNetAmount(), 0.0);
+        assertEquals(110.0, item.itemNetAmount(), 0.0);
+    }
+
+    @Test
+    public void shouldReturnItsNetAmountWhenItsGrossValueIs100AndIsImportedButNotTaxable() {
+        boolean isTaxable = false;
+        boolean isImported = true;
+        Item item = new Item(100, isTaxable, isImported);
+
+        assertEquals(105.0, item.itemNetAmount(), 0.0);
     }
 }
