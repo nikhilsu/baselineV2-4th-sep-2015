@@ -2,6 +2,8 @@ package com.thoughtworks.salestax;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class CashierTest {
@@ -12,9 +14,11 @@ public class CashierTest {
         boolean isImported = false;
         int itemPrice = 100;
         Item item = new Item(itemPrice, isTaxable, isImported);
-        Cashier cashier = new Cashier(item);
+        ArrayList<Item> listOfItems = new ArrayList<Item>();
+        listOfItems.add(item);
+        Cashier cashier = new Cashier(listOfItems);
 
-        assertEquals(100.0, cashier.itemNetAmount(), 0.0);
+        assertEquals(100.0, cashier.totalNetAmount(), 0.0);
     }
 
     @Test
@@ -23,9 +27,11 @@ public class CashierTest {
         boolean isImported = false;
         int itemPrice = 100;
         Item item = new Item(itemPrice, isTaxable, isImported);
-        Cashier cashier = new Cashier(item);
+        ArrayList<Item> listOfItems = new ArrayList<Item>();
+        listOfItems.add(item);
+        Cashier cashier = new Cashier(listOfItems);
 
-        assertEquals(110.0, cashier.itemNetAmount(), 0.0);
+        assertEquals(110.0, cashier.totalNetAmount(), 0.0);
     }
 
     @Test
@@ -34,9 +40,11 @@ public class CashierTest {
         boolean isImported = true;
         int itemPrice = 100;
         Item item = new Item(itemPrice, isTaxable, isImported);
-        Cashier cashier = new Cashier(item);
+        ArrayList<Item> listOfItems = new ArrayList<Item>();
+        listOfItems.add(item);
+        Cashier cashier = new Cashier(listOfItems);
 
-        assertEquals(105.0, cashier.itemNetAmount(), 0.0);
+        assertEquals(105.0, cashier.totalNetAmount(), 0.0);
     }
 
     @Test
@@ -45,8 +53,10 @@ public class CashierTest {
         boolean isImported = true;
         int itemPrice = 100;
         Item item = new Item(itemPrice, isTaxable, isImported);
-        Cashier cashier = new Cashier(item);
+        ArrayList<Item> listOfItems = new ArrayList<Item>();
+        listOfItems.add(item);
+        Cashier cashier = new Cashier(listOfItems);
 
-        assertEquals(115.0, cashier.itemNetAmount(), 0.0);
+        assertEquals(115.0, cashier.totalNetAmount(), 0.0);
     }
 }
