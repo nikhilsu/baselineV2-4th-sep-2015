@@ -59,4 +59,17 @@ public class CashierTest {
 
         assertEquals(115.0, cashier.totalNetAmount(), 0.0);
     }
+
+    @Test
+    public void shouldReturnTheCorrectTotalOfTheNetAmountsOfATaxableAndANonTaxableItems() {
+        int itemPrice = 100;
+        Item itemOne = new Item(itemPrice, true, false);
+        Item itemTwo = new Item(itemPrice, false, false);
+        ArrayList<Item> listOfItems = new ArrayList<Item>();
+        listOfItems.add(itemOne);
+        listOfItems.add(itemTwo);
+        Cashier cashier = new Cashier(listOfItems);
+
+        assertEquals(210.0, cashier.totalNetAmount(), 0.0);
+    }
 }
