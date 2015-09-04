@@ -8,15 +8,29 @@ public class CashierTest {
 
     @Test
     public void shouldReturnTheNetAmountOfAnItemWhoseValueIs100AndIsNotTaxable(){
-        Cashier cashier = new Cashier(100, false);
+        boolean isTaxable = false;
+        boolean isImported = false;
+        Cashier cashier = new Cashier(100, isTaxable, isImported);
 
         assertEquals(100.0, cashier.itemNetAmount(), 0.0);
     }
 
     @Test
     public void shouldReturnTheNetAmountOfAnItemWhoseValueIs100AndTaxable() {
-        Cashier cashier = new Cashier(100, true);
+        boolean isTaxable = true;
+        boolean isImported = false;
+        Cashier cashier = new Cashier(100, isTaxable, isImported);
 
         assertEquals(110.0, cashier.itemNetAmount(), 0.0);
+    }
+
+    @Test
+    public void shouldReturnTheCorrectNetAmountOfTheItemWhichIsNotTaxableButIsImported() {
+
+        boolean isTaxable = false;
+        boolean isImported = true;
+        Cashier cashier = new Cashier(100, isTaxable, isImported);
+
+        assertEquals(105.0, cashier.itemNetAmount(), 0.0);
     }
 }
